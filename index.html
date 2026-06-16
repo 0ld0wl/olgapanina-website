@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olga Panina | Data Analyst · Artist · Photographer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1ea;
+    --bg-warm: #efe8dc;
+    --ink: #0e1a2e;
+    --ink-soft: #455068;
+    --blue-deep: #0a2a6b;
+    --blue-mid: #1f4a9a;
+    --blue-pale: #6c8bc4;
+    --accent: #c9a96e;
+    --line: rgba(10, 42, 107, 0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 241, 234, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--line);
+  }
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--blue-deep);
+  }
+  nav ul { display: flex; gap: 36px; list-style: none; }
+  nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--blue-deep); }
+  .lang {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--ink-soft);
+  }
+  .lang a { color: var(--blue-deep); font-weight: 500; }
+  .lang span { opacity: 0.4; margin: 0 6px; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 140px 80px 80px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+    position: relative;
+  }
+  .hero-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 40px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 9vw, 128px);
+    font-weight: 400;
+    line-height: 1.0;
+    color: var(--blue-deep);
+    margin-bottom: 36px;
+    letter-spacing: -2px;
+    max-width: 1100px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue-mid);
+  }
+  .hero .roles {
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 60px;
+    font-weight: 400;
+  }
+  .hero .roles span { color: var(--accent); margin: 0 12px; }
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  .hero-scroll:hover { opacity: 1; }
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 32px;
+    background: var(--ink-soft);
+  }
+
+  section { padding: 120px 80px; }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+    position: relative;
+    padding-top: 28px;
+  }
+  .section-label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500;
+    color: var(--blue-deep);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .section-intro {
+    max-width: 560px;
+    color: var(--ink-soft);
+    font-size: 17px;
+    margin-bottom: 64px;
+  }
+
+  .about {
+    background: var(--blue-deep);
+    color: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about .section-label { color: var(--accent); }
+  .about .section-title { color: var(--bg); }
+  .about p {
+    font-size: 18px;
+    color: rgba(245, 241, 234, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .data {
+    background: var(--bg);
+    max-width: 720px;
+  }
+  .data-links {
+    list-style: none;
+    margin-top: 32px;
+  }
+  .data-links li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .data-links a {
+    color: var(--blue-deep);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+  }
+  .data-links .tag {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .art { background: var(--bg-warm); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .artwork {
+    cursor: pointer;
+    transition: transform 0.4s;
+  }
+  .artwork:hover { transform: translateY(-6px); }
+  .artwork-frame {
+    aspect-ratio: 4/5;
+    background: var(--blue-deep);
+    border-radius: 2px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(10, 42, 107, 0.2);
+  }
+  .artwork-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s;
+  }
+  .artwork:hover .artwork-frame img { transform: scale(1.03); }
+  .artwork-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .artwork-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--blue-deep);
+  }
+  .artwork-info {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .photo { background: var(--bg); }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 300px 300px;
+    gap: 16px;
+  }
+  .photo-tile {
+    background: var(--blue-deep);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s;
+    position: relative;
+  }
+  .photo-tile:hover { transform: scale(1.01); }
+  .photo-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s;
+  }
+  .photo-tile:hover img { transform: scale(1.04); }
+
+  .blog { background: var(--bg-warm); }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+  .post {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    cursor: pointer;
+  }
+  .post-date {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .post-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--blue-deep);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .post-excerpt {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .post-read {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-deep);
+  }
+  .post-full {
+    grid-column: 1 / -1;
+    max-width: 720px;
+    margin: 0 auto;
+    cursor: default;
+  }
+  .post-full .post-title {
+    font-size: 40px;
+    margin-bottom: 32px;
+  }
+  .post-body p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .post-body img {
+    width: 100%;
+    height: auto;
+    margin: 32px 0;
+    border-radius: 2px;
+    box-shadow: 0 20px 50px rgba(10, 42, 107, 0.15);
+  }
+
+  footer {
+    background: var(--blue-deep);
+    color: var(--bg);
+    padding: 80px 80px 40px;
+    text-align: center;
+  }
+  footer h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  footer p { color: rgba(245, 241, 234, 0.7); margin-bottom: 32px; }
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .social a {
+    color: rgba(245, 241, 234, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .social a:hover { color: var(--accent); }
+  .copyright {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(245, 241, 234, 0.4);
+    border-top: 1px solid rgba(245, 241, 234, 0.1);
+    padding-top: 24px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; }
+    .about { grid-template-columns: 1fr; gap: 48px; padding-left: 24px; padding-right: 24px; }
+    .hero { padding-left: 24px; padding-right: 24px; }
+    section { padding: 80px 24px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 200px); }
+    .blog-grid { grid-template-columns: 1fr; }
+    footer { padding: 60px 24px 32px; }
+    footer h2 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Olga Panina</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#art">Art</a></li>
+    <li><a href="#photo">Photography</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="lang"><a href="#">EN</a><span>·</span><a href="#" style="opacity:0.5;">RU</a></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-rule"></div>
+  <h1>An analyst who<br>sees the <em>picture</em>.</h1>
+  <div class="roles">Data<span>·</span>Art<span>·</span>Photography</div>
+  <a href="#about" class="hero-scroll">Scroll</a>
+</section>
+
+<section class="about" id="about">
+  <div>
+    <div class="section-label">About</div>
+    <h2 class="section-title">A few words</h2>
+  </div>
+  <div>
+    <p>I'm Olga. I grew up between books and paints, and I'm now moving into data analytics. I love finding meaning wherever there's structure: in the composition of a painting, in the light on a face, in the rows of a table.</p>
+    <p>Three languages here. Pick any.</p>
+  </div>
+</section>
+
+<section class="data" id="data">
+  <div class="section-label">Data Analytics</div>
+  <h2 class="section-title">Analytics</h2>
+  <p class="section-intro" style="margin-bottom: 32px;">Portfolio in progress. Full case studies launching summer 2026. Open to junior data analyst roles in Canada and remote.</p>
+  <ul class="data-links">
+    <li><a href="#">Download résumé (PDF) →</a><span class="tag">CV · 2026</span></li>
+    <li><a href="mailto:hello@olgapanina.com">Get in touch →</a><span class="tag">Email</span></li>
+  </ul>
+</section>
+
+<section class="art" id="art">
+  <div class="section-label">Art</div>
+  <h2 class="section-title">Paintings</h2>
+  <p class="section-intro">Oil on canvas. Most works lean into deep phthalo blues and muted warm tones. Each painting starts with a mood, not a subject.</p>
+
+  <div class="gallery-grid">
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/horse.jpeg" alt="White Horse" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">White Horse</div>
+        <div class="artwork-info">Oil · 2025</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/mountain2.jpg" alt="Summit" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Summit</div>
+        <div class="artwork-info">Oil · 2025</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/storm_cropped.jpg" alt="Storm" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Storm</div>
+        <div class="artwork-info">Oil · 2025</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/people.jpg" alt="Closeness" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Closeness</div>
+        <div class="artwork-info">Oil · 2025</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/owl.jpeg" alt="Owl" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Owl</div>
+        <div class="artwork-info">Oil · 2024</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/tree.jpg" alt="Resistance" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Resistance</div>
+        <div class="artwork-info">Oil · 2025</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/flowers.jpg" alt="Bird Cherry" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Bird Cherry</div>
+        <div class="artwork-info">Oil · 2021</div>
+      </div>
+    </div>
+    <div class="artwork">
+      <div class="artwork-frame"><img src="images/lighthouse.jpg" alt="Lighthouse" loading="lazy"></div>
+      <div class="artwork-meta">
+        <div class="artwork-title">Lighthouse</div>
+        <div class="artwork-info">Oil · 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="photo" id="photo">
+  <div class="section-label">Photography</div>
+  <h2 class="section-title">Photographs</h2>
+  <p class="section-intro">Portraits and nature. Shot in natural light, with minimal post-processing.</p>
+
+  <div class="photo-grid">
+    <div class="photo-tile"><img src="images/photo_lighthouse.jpeg" alt="Lighthouse on the cliff" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/photo_fjord.jpeg" alt="Tanker in the fjord" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/photo_wave.jpg" alt="Wave breaking on rocks" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/photo_clouds_reflection.jpeg" alt="Clouds reflected in still water" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/portrait_gala.jpg" alt="Portrait of Galya at haystacks" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/photo_book_flowers.jpg" alt="Book with wildflowers" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/photo_bird_cherry.jpg" alt="Bird cherry blossoms" loading="lazy"></div>
+    <div class="photo-tile"><img src="images/portrait_eva.jpg" alt="Portrait of Eva in lavender hat" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="section-label">Journal</div>
+  <h2 class="section-title">Blog</h2>
+  <p class="section-intro">On creative work, a career transition, and the life between them.</p>
+
+  <div class="blog-grid">
+    <article class="post post-full">
+      <div class="post-date">June 16, 2026</div>
+      <h3 class="post-title">The library or paper data</h3>
+      <div class="post-body">
+        <p>We now carry an enormous library on our smartphones across every field that 20 to 25 years ago we could only dream about. To get information, data, or do any kind of research, we went to libraries, where you could find books, fresh newspapers and magazines, rare monographs. Today I want to walk you through the largest library in Europe, the Russian State Library, known simply as Leninka.</p>
+        <img src="images/blog/library.jpg" alt="The Russian State Library at dusk, with the Dostoevsky monument" loading="lazy">
+        <p>I'll share only the facts that struck me as interesting.</p>
+        <p>The library holds about 50 million printed items, can you imagine how much data that is? From the day it opened until now, it receives one copy of everything printed in Russia: from the free newspapers handed out in the metro to rare editions on quantum field theory. You can essentially trace all printed production of more than a century and a half.</p>
+        <p>They still use paper card catalogs here, not everything has been digitized. Visitors search not only on computers but through cards, and some of those cards are more than 100 years old.</p>
+        <img src="images/blog/card1.jpg" alt="Brass card catalog drawers" loading="lazy">
+        <img src="images/blog/card2.jpg" alt="A hand-written library card, more than a hundred years old" loading="lazy">
+        <p>What struck me most was the pneumatic mail, still working, still carrying readers' requests from one department to another. It's loud, but it runs like clockwork. The staff told me that when there was a computer failure a few years ago that lasted almost two weeks, the pneumatic mail handled the whole thing without a hiccup. They also let slip, in secret, that they sometimes used it to send candy for tea and even cigarettes. But that's a big secret :)</p>
+        <img src="images/blog/pochta.jpg" alt="The pneumatic mail station at the librarian's desk" loading="lazy">
+        <p>To preserve the books and the data, they keep cats, use dosimeters and cryorooms, and even test for mold. All of this to keep the books in their original state, so we can walk in at any moment and verify the information.</p>
+        <p>I didn't come here out of abstract curiosity. I needed colour calibrated reproductions of paintings by my favourite artists for my project on colour in painting. Archival albums with proper colour printing should beat my phone snapshots.</p>
+        <img src="images/blog/third.jpg" alt="The reading room where I work with the albums" loading="lazy">
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Let's talk</h2>
+  <p>For collaborations, commissions, or just to say hi.</p>
+  <div class="social">
+    <a href="mailto:hello@olgapanina.com">Email</a>
+    <a href="https://www.linkedin.com/in/olga-panina-84433a83/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="copyright">© 2026 Olga Panina · olgapanina.com</div>
+</footer>
+
+</body>
+</html>

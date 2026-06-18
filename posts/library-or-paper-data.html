@@ -1,0 +1,167 @@
+<!--
+  Blog post template.
+  How to use:
+    1. Copy this file: posts/_template.html → posts/my-new-post.html
+       (keep the name lowercase, use dashes between words, no spaces)
+    2. Update <title> and <meta description> at the top
+    3. Replace placeholders below ("REPLACE: ...") with your content
+    4. Save photos into images/blog/ (run prepare_images.py first)
+    5. Add a card for this post in index.html (Blog section)
+    6. Commit + push from VS Code
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The library, or paper data | Olga Panina</title>
+<meta name="description" content="Pneumatic mail, library cats, and 50 million volumes: a visit to the Lenin Library for my colour-in-painting project.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+  /* Post-page specific styles. The main site styles come from styles.css */
+  .post-page {
+    padding: 140px 24px 80px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .post-back {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    margin-bottom: 40px;
+    transition: color 0.2s;
+  }
+  .post-back:hover { color: var(--blue-deep); }
+  .post-page .post-date {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .post-page h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 500;
+    color: var(--blue-deep);
+    line-height: 1.1;
+    margin-bottom: 48px;
+    letter-spacing: -0.5px;
+  }
+  .post-content p {
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .post-content img {
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+    border-radius: 2px;
+    box-shadow: 0 20px 50px rgba(10, 42, 107, 0.15);
+  }
+  .post-content figure {
+    margin: 40px 0;
+  }
+  .post-content figure img { margin: 0; }
+  .post-content figcaption {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 12px;
+    font-style: italic;
+  }
+  .post-end {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .post-end a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-deep);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">Olga Panina</a></div>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#data">Data</a></li>
+    <li><a href="../index.html#art">Art</a></li>
+    <li><a href="../index.html#photo">Photography</a></li>
+    <li><a href="../index.html#blog">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="lang"><a href="#">EN</a><span>·</span><a href="#" style="opacity:0.5;">RU</a></div>
+</nav>
+
+<article class="post-page">
+
+  <a href="../index.html#blog" class="post-back">← Back to all posts</a>
+
+  <div class="post-date">June 18, 2026</div>
+  <h1>The library, or paper data | Olga Panina</h1>
+
+  <div class="post-content">
+
+    <!-- REPLACE: post body starts here -->
+
+    <p>Almost 50 million volumes, three million of them rare, that's how much printed material (books, newspapers, magazines, sheet music) is held right now at the Lenin Library. It's the largest library in Europe, with the largest reading room. From the day it opened until today, it receives one copy of everything printed in Russia: from the free newspapers handed out in the metro to rare editions on quantum field theory. You can essentially trace all of Russia's printed output of more than 160 years. There are books in 367 languages here, you can get lifetime-edition copies of sheet music by great composers, and you can even host a board-game night with friends, they have a huge selection.</p>
+
+    <!-- To add an image, use this pattern: -->
+    <img src="../images/blog/library.jpg" alt="Lenin Library building in Moscow, photo by Olga Panina">
+
+    <p>They still use paper card catalogs here, because not everything has been digitized. Visitors search not only on computers but through cards, some of which are more than 100 years old.</p>
+    <img src="../images/blog/card1.jpg" alt="card catalog of the Lenin Library">
+    <img src="../images/blog/card2.jpg" alt="card catalog of the Lenin Library">
+    <p>What struck me most was the pneumatic mail, still working and still carrying readers' requests from one department to another. It's loud, but runs like clockwork. The staff told me that when there was a computer failure a few years ago that lasted almost two weeks, the pneumatic mail handled the whole thing without a hiccup. They also let slip, in secret, that they sometimes used it to send candy for tea and even cigarettes. But that's a big secret :)</p>
+    <img src="../images/blog/pochta.jpg" alt="Pneumatic mail">
+    <img src="../images/blog/pochta1.jpg" alt="Pneumatic mail">
+    <p>To preserve the books and the data, they keep cats, use dosimeters and cryorooms, and even test for mold. All of this to keep the books in their original state, so we can walk in at any moment and verify the information. You can also get high-resolution scans of any book. Books don't leave the library. That's exactly why I came here: I needed colour-calibrated reproductions of paintings by my favourite artists for my project on colour in painting. Archival albums with proper colour printing should beat my phone snapshots. Let "Find the Perfect Blue" begin.
+    <img src="../images/blog/third.jpg" alt="third reading room of the Lenin Library">
+    <img src="../images/blog/third1.jpg" alt="third reading room of the Lenin Library">
+    <!-- If you want a caption under the image, use figure: -->
+    <figure>
+      <img src="../images/blog/REPLACE_image_name.jpg" alt="REPLACE: short description">
+      <figcaption>REPLACE: optional caption text</figcaption>
+    </figure>
+
+    <p>REPLACE: more paragraphs as needed.</p>
+
+    <!-- REPLACE: post body ends here -->
+
+  </div>
+
+  <div class="post-end">
+    <a href="../index.html#blog">← Back to all posts</a>
+  </div>
+
+</article>
+
+<footer id="contact">
+  <h2>Let's talk</h2>
+  <p>For collaborations, commissions, or just to say hi.</p>
+  <div class="social">
+    <a href="mailto:hello@olgapanina.com">Email</a>
+    <a href="https://www.linkedin.com/in/olga-panina-84433a83/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="copyright">© 2026 Olga Panina · olgapanina.com</div>
+</footer>
+
+</body>
+</html>
